@@ -7,12 +7,26 @@ import com.dehaat.dehaatassignment.rest.AppRestClient;
 /**
  * Created by Pallaw Pathak on 15/06/20. - https://www.linkedin.com/in/pallaw-pathak-a6a324a1/
  */
-class App extends Application {
+public class App extends Application {
+    private static App mInstance;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
+        setInstance(this);
+
         //initialize retrofit client
         AppRestClient.init(this);
+
+
+    }
+
+    private static synchronized void setInstance(App app) {
+        mInstance = app;
+    }
+
+    public static App getAppContext() {
+        return mInstance;
     }
 }
