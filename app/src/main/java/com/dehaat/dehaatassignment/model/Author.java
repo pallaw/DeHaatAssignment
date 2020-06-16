@@ -2,7 +2,9 @@ package com.dehaat.dehaatassignment.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
+import com.dehaat.dehaatassignment.model.convertor.BooksTypeConverters;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -21,6 +23,7 @@ public class Author {
     private String author_bio;
 
     @SerializedName("books")
+    @TypeConverters(BooksTypeConverters.class)
     private List<Book> books;
 
     public int getId() {

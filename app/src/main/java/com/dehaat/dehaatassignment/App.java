@@ -2,6 +2,7 @@ package com.dehaat.dehaatassignment;
 
 import android.app.Application;
 
+import com.dehaat.dehaatassignment.manager.SessionManager;
 import com.dehaat.dehaatassignment.rest.AppRestClient;
 
 /**
@@ -19,7 +20,8 @@ public class App extends Application {
         //initialize retrofit client
         AppRestClient.init(this);
 
-
+        //initialize session manager
+        SessionManager.init(this);
     }
 
     private static synchronized void setInstance(App app) {
