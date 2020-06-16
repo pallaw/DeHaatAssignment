@@ -1,12 +1,39 @@
 package com.dehaat.dehaatassignment.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
+
+@Entity(tableName = "book")
 public class Book {
 
+    @PrimaryKey(autoGenerate = true)
+    @SerializedName("id")
+    private int id;
+
+    @SerializedName("title")
     private String title;
+
+    @SerializedName("description")
     private String description;
+
+    @SerializedName("publisher")
     private String publisher;
+
+    @SerializedName("published_date")
     private String published_date;
+
+    @SerializedName("price")
     private Float price;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
